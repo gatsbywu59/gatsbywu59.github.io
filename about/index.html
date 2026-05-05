@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="11111111111111111111111">
+    <meta name="description" content="关于博主00后，现居深圳，是一个不会讲白话的广东佬有点宅，喜欢网上冲浪偶尔会去出门看看风景 关于博客记录自己的生活和想法当做互联网中的落脚点，远离戾气">
 <meta property="og:type" content="website">
 <meta property="og:title" content="摩根日记">
 <meta property="og:url" content="http://example.com/about/index.html">
 <meta property="og:site_name" content="摩根日记">
-<meta property="og:description" content="11111111111111111111111">
+<meta property="og:description" content="关于博主00后，现居深圳，是一个不会讲白话的广东佬有点宅，喜欢网上冲浪偶尔会去出门看看风景 关于博客记录自己的生活和想法当做互联网中的落脚点，远离戾气">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-05T13:47:29.851Z">
-<meta property="article:modified_time" content="2026-05-05T13:47:29.851Z">
+<meta property="article:published_time" content="2026-05-05T14:50:54.836Z">
+<meta property="article:modified_time" content="2026-05-05T14:50:54.836Z">
 <meta property="article:author" content="Morgan">
 <meta name="twitter:card" content="summary">
     
@@ -55,6 +55,126 @@
     
 	<!-- mathjax -->
 	
+	
+<!-- 以下自加代码	-->
+<!-- 图片灯箱：点击放大 + 滚轮翻图 + 左右键翻图 + ESC关闭 -->
+<style>
+#lightbox-box {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+#lightbox-box img {
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 灯箱容器
+  const lightbox = document.createElement('div');
+  lightbox.id = 'lightbox-box';
+  lightbox.innerHTML = '<img src="">';
+  document.body.appendChild(lightbox);
+
+  // 获取文章所有图片（Cactus 专用）
+  const imgs = document.querySelectorAll('.post img');
+  let imgList = [];
+  let currentIndex = 0;
+
+  // 存入图片列表
+  imgs.forEach((img, idx) => {
+    imgList.push(img.src);
+    img.style.cursor = 'zoom-in';
+    // 点击打开大图
+    img.onclick = function(e) {
+      e.preventDefault();
+      currentIndex = idx;
+      lightbox.querySelector('img').src = imgList[currentIndex];
+      lightbox.style.display = 'flex';
+    };
+  });
+
+  // 点击遮罩关闭
+  lightbox.onclick = function(e) {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  };
+
+  // 上一张
+  function prevImg() {
+    currentIndex = (currentIndex - 1 + imgList.length) % imgList.length;
+    lightbox.querySelector('img').src = imgList[currentIndex];
+  }
+  // 下一张
+  function nextImg() {
+    currentIndex = (currentIndex + 1) % imgList.length;
+    lightbox.querySelector('img').src = imgList[currentIndex];
+  }
+
+  // 鼠标滚轮切换
+  lightbox.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    if (e.deltaY > 0) {
+      nextImg();
+    } else {
+      prevImg();
+    }
+  });
+
+  // 键盘左右箭头、ESC关闭
+  document.addEventListener('keydown', function(e) {
+    if (lightbox.style.display !== 'flex') return;
+    switch(e.key) {
+      case 'ArrowLeft':
+        prevImg();
+        break;
+      case 'ArrowRight':
+        nextImg();
+        break;
+      case 'Escape':
+        lightbox.style.display = 'none';
+        break;
+    }
+  });
+});
+</script>
+<style>
+/* 描述文字：从上往下淡入动画 */
+.p-note {
+  /* 基础样式（可选，你可以自己改） */
+  font-size: 14px;
+  color: #555;
+  
+  /* 动画核心 */
+  animation: fadeInDown 0.8s ease-out forwards;
+  opacity: 0; /* 一开始隐藏 */
+}
+
+/* 动画定义：从上淡入 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* 从上方 20px 开始 */
+  }
+  to {
+    opacity: 1;
+    opacity: 1;
+    transform: translateY(0); /* 回到原位 */
+  }
+}
+</style>
 <meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="摩根日记" type="application/atom+xml">
 </head>
 
@@ -85,13 +205,9 @@
    --><!--
      --><li><a href="/archives/">归档</a></li><!--
    --><!--
-     --><li><a href="/atom.xml/">feed</a></li><!--
-   --><!--
-     --><li><a href="/tags/">标签</a></li><!--
-   --><!--
-     --><li><a href="/categories/">分类</a></li><!--
-   --><!--
      --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/atom.xml">rss</a></li><!--
    -->
     </ul>
   </div>
@@ -103,7 +219,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <p>11111111111111111111111</p>
+          <h3 id="关于博主"><a href="#关于博主" class="headerlink" title="关于博主"></a>关于博主</h3><p>00后，现居深圳，是一个不会讲白话的广东佬<br>有点宅，喜欢网上冲浪<br>偶尔会去出门看看风景</p>
+<h3 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h3><p>记录自己的生活和想法<br>当做互联网中的落脚点，远离戾气</p>
 
         
   </div>
@@ -128,13 +245,9 @@
      --><!--
        --><li><a href="/archives/">归档</a></li><!--
      --><!--
-       --><li><a href="/atom.xml/">feed</a></li><!--
-     --><!--
-       --><li><a href="/tags/">标签</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
        --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/atom.xml">rss</a></li><!--
      -->
       </ul>
     </nav>
